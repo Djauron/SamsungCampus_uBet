@@ -1,0 +1,261 @@
+ html, body, div, span, applet, object, iframe, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquoSSSte:after,
+q:before, q:after {
+	content: '';
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*  CSS INSCRIPTION */
+
+#divsing
+{
+	float:right; 
+	font-size: 85%; 
+	position: relative; 
+	top:-10px;
+}
+
+#signupbox
+{
+	margin-top:50px
+}
+
+/*  CSS CONNEXION */
+body
+{
+	background-image: url("../images/esports-paris.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment:fixed; 
+}
+#bodyconnexion
+{
+	background-image: url("../images/esport.jpeg");
+	font-family: verdana;
+	background-repeat: no-repeat;
+    background-attachment:fixed;  
+}
+/*	PANEL PROFILE   */
+
+#body_panel
+{
+	background-image: url("../images/esport.jpeg");
+	font-family: verdana;
+	background-repeat: no-repeat;
+    background-attachment:fixed;  
+}
+#body_panel h1
+{
+	margin-top: 50px; 
+	text-align: center;
+	font-size: 50px;
+	color: white;
+}
+/*	PROFILE   */
+.avatar
+{
+	width: 100px;
+	height: 100px;
+}
+
+#body_panel #blockticket
+{
+	margin: 100px 0px 40px 570px;
+}
+
+.profile
+{
+	margin: 2% 25%;
+	padding: 20px;
+	border: 4px solid black;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 15px;
+	margin-bottom: -80px;
+}
+
+.profile table
+{
+	margin: 15px;
+}
+
+.profile td
+{
+	border: 1px solid white;
+	color: white;
+	font-size: 18px;
+	font-weight: 900;
+	margin: 5% 1.5%;
+	width :410px;
+	height:50px;
+	text-align:center;
+	padding:20px 20px;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile_avatar
+{
+	overflow: hidden;
+}
+
+.profile_avatar img
+{
+	float: left;
+	margin: 0% 43%;
+	box-shadow: 0px 0px 13px 8px #8cb3d9;
+}
+
+.send_img
+{
+    margin: 2% 0% 0% 5%;
+}
+
+#avatar
+{
+	float: left;
+	margin: 1% 0% 0% 20%;
+}
+
+.search_profile
+{
+	margin: 0% 25%; 
+	padding: 5px;
+	border: 4px solid black;
+	background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+.search_profile p
+{
+	font-size: 20px;
+	color: white;
+	margin: 1% 38%;
+}
+
+.user_search
+{
+	margin-left: 38%;
+	height:30px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	border: 1px solid white;
+}
+
+.user_submit
+{
+	width: 21px;
+	height: 21px;
+	margin-bottom: -7px;
+}
+
+.denied_access
+{
+	margin: 15% 0%;
+	text-align: center;
+	font-size: 60px;
+	font-weight: 900;
+	color:black;
+}
+
+.footer
+{
+	margin-top: 47%;
+	clear: both;
+ 	width: 100%; 
+ 	height: 50px;
+ 	text-align: center;
+ 	background-color: #0e0e0e;
+ 	padding-top: 15px;
+ 	text-transform: uppercase;
+ 	color: #DADBDB;
+ 	font-size: 15px;
+}
+
+.container-fluid
+{
+	background-color: pink;
+}
+
+.panel-info > .panel-heading
+{
+	color: white;
+	background-color: black;
+}
+
+#signinlink
+{
+	color: white;
+}
+
+input
+{
+	color: black;
+}
+
+#bouton_chg
+{
+	margin-left: 375px;
+}
+
+.formu_recherche p
+{
+	color: black;
+}
+
+.buton_noir
+{
+	color: black;
+}
+
+#supprimer_compte
+{
+	margin-left: 75%;
+}
+
+#confirmation_affiche
+{
+	text-align: center;
+	font-size: 40px;
+	color: black;
+	margin-top: 350px;
+}
+
+#se_connecter
+{
+	text-align: center;
+	font-size: 40px;
+	color: black;
+	margin-top: 100px;
+}
