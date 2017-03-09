@@ -4,19 +4,22 @@
 		<div class="panel-heading">
 			<div class="panel-title">Inscription</div>
 			<div id="divsing">
-				<a id="signinlink" href="/B.E.T/connexion">Connexion</a>
+				<a id="signinlink" href="connexion">Connexion</a>
 			</div>
 		</div>
 		<div class="panel-body">
+
 			<?php
 			if(isset($error) && $error != "null")
-			{var_dump($error);?>
-			<div id="pseudo-alert" class="alert alert-danger col-sm-12"><?php echo $error ?></div><?php
+			{?>
+				<div id="pseudo-alert" class="alert alert-danger col-sm-12"><?php echo $error ?></div><?php
 			}
+
 			if(isset($valid) && $valid != "null")
-			{ var_dump($valid);?>
-			<div id="pseudo-alert" class="alert alert-danger col-sm-12" style="background-color: green; color: white;"><?php echo $valid ?></div><?php 
+			{?>
+				<div id="pseudo-alert" class="alert alert-danger col-sm-12" style="background-color: green; color: white;"><?php echo $valid ?></div><?php 
 			}?>
+
 			<form id="signupform" class="form-horizontal" method="post">
 				<div class="form-group">
 					<label id="nom" class="col-md-3 control-label">Nom</label>

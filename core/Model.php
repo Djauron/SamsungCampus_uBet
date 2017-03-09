@@ -32,6 +32,21 @@ class Model
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function readInfo($req, $tab)
+	{
+		$sql = "SELECT * FROM ".$this->table." WHERE $req";
+		$query = self::$_pdo->prepare($sql);
+		$query->execute($tab);
+		return $query->fetch();
+	}
+
+	public function updateMembre($req, $tab)
+	{
+		$sql = "UPDATE ".$this->table." SET $req";
+		$query = self::$_pdo->prepare($sql);
+		$query->execute($tab);
+	}
+
 }
 
 ?>
