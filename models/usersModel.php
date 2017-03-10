@@ -14,7 +14,7 @@ class Users extends Model
 	private $error;
 	private $valid;
 
-
+//DEBUT INSCRIPTION
 
 	public function verifInscription($nom,$prenom,$date_naissance,$email,$pseudo, $mdp, $remdp, $sexe,$error="null",$valid="null")
 	{
@@ -73,9 +73,10 @@ class Users extends Model
 	public function pseudo()
 	{
 		$longueur = strlen($this->pseudo);
-		$sql = "SELECT * FROM membre WHERE pseudo = '$this->pseudo'";
+		$sql = "SELECT * FROM user WHERE pseudo = '$this->pseudo'";
 		$query = self::$_pdo->prepare($sql);
-		$query->fetchAll();
+		$query->execute();
+		$prisLog = $query->fetch();
 
 		if(!empty($this->pseudo))
 		{
@@ -181,6 +182,46 @@ class Users extends Model
 	    }
     }
 
+    public function verifMail($pseudo, $token)
+    {
+    	$infouser = $this->requeteRecupKey($tab = array($pseudo,$token));
+
+    	if($infouser == true)
+		{
+			if($infouser['confirme'] == 0)
+			{
+				$this->requeteConfirmKey($tab = array($_GET['p1']));
+				$this->valid = "Votre compte est maintenant Valide ! ";
+			} 
+			else
+			{
+				$this->error = "Utilisateur Deja Valide";
+			}
+		}
+		else
+		{	
+			$this->error = "Utilisateur Inexistant !";
+		}
+    }
+
+    public function requeteRecupKey($tab)
+	{
+		$sql = "SELECT * FROM user WHERE pseudo = ? AND token = ?";
+		$query = self::$_pdo->prepare($sql);
+		$query->execute($tab);
+      	return $query->fetch();
+	}
+
+	public function requeteConfirmKey($tab)
+	{
+		$sql = "UPDATE user SET confirme = '1' where pseudo = ?";
+		$query = self::$_pdo->prepare($sql);
+		return $query->execute($tab);
+	}
+
+
+//FIN INSCRIPTION
+// DEBUT CONNEXION
 
 	public function Verifconnexion($pseudo, $mdp)
 	{
@@ -191,21 +232,15 @@ class Users extends Model
 
       	if(!empty($this->pseudo) && !empty($this->mdp))
       	{
-			if($verifco == 1)
+			if($verifco == true)
 			{
-				$userinfo = $this->RequeteInfoUser($tab = array($this->pseudo , $this->mdp));
-				if($userinfo['confirme'] == 1)
+				if($verifco['confirme'] == 1)
 				{
-					if($userinfo['active'] == 0)
+					if($verifco['active'] == 0)
 					{
-						$_SESSION['id'] = $userinfo['id'];
-						$_SESSION['pseudo'] = $userinfo['pseudo'];
-						$_SESSION['email'] = $userinfo['email'];
-						$_SESSION['nom'] = $userinfo['nom'];
-						$_SESSION['prenom'] = $userinfo['prenom'];
-						$_SESSION['avatar'] = $userinfo['avatar'];
-						$_SESSION['naissance'] = $userinfo['date_naissance'];
-						header("Location: index.php?page=profile");
+						$_SESSION['id'] = $verifco['id'];
+						$_SESSION['pseudo'] = $verifco['pseudo'];
+						header("Location: home");
 						return true;
 					}
 					else
@@ -229,18 +264,11 @@ class Users extends Model
 		else
 		{
 			$this->error = "Un des deux champs est vide !";
+			return false;
 		}
 	}
 
 	public function RequeteVerifConnexion($tab)
-	{
-		$sql = "SELECT * FROM membre WHERE pseudo = ? AND mdp = ?";
-		$query = self::$_pdo->prepare($sql);
-        $query->execute($tab);
-      	return $query->rowCount();
-	}
-
-	public function RequeteInfoUser($tab)
 	{
 		$sql = "SELECT * FROM user WHERE pseudo = ? AND mdp = ?";
 		$query = self::$_pdo->prepare($sql);
@@ -248,20 +276,19 @@ class Users extends Model
       	return $query->fetch();
 	}
 
-	public function requeteRecupKey($tab)
+// FIN CONNEXION
+// DEBUT ADMIN
+
+	public function verifAdmin($tab)
 	{
-		$sql = "SELECT * FROM user WHERE pseudo = ? AND token = ?";
+		$sql = "SELECT rank FROM user WHERE pseudo = ?";
 		$query = self::$_pdo->prepare($sql);
-		$query->execute($tab);
+        $query->execute($tab);
       	return $query->fetch();
 	}
 
-	public function requeteConfirmKey($tab)
-	{
-		$sql = "UPDATE user SET confirme = '1' where pseudo = ?";
-		$query = self::$_pdo->prepare($sql);
-		return $query->execute($tab);
-	}
+// FIN ADMIN
+
 }
 
 ?>

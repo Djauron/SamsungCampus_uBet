@@ -1,4 +1,4 @@
- html, body, div, span, applet, object, iframe, p, blockquote, pre,
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, center,
@@ -60,152 +60,29 @@ body
 	background-image: url("../images/esports-paris.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-    background-attachment:fixed; 
+	background-attachment:fixed;
+	font-family: 'Raleway', sans-serif;
 }
 #bodyconnexion
 {
 	background-image: url("../images/esport.jpeg");
 	font-family: verdana;
 	background-repeat: no-repeat;
-    background-attachment:fixed;  
-}
-/*	PANEL PROFILE   */
-
-#body_panel
-{
-	background-image: url("../images/esport.jpeg");
-	font-family: verdana;
-	background-repeat: no-repeat;
-    background-attachment:fixed;  
-}
-#body_panel h1
-{
-	margin-top: 50px; 
-	text-align: center;
-	font-size: 50px;
-	color: white;
-}
-/*	PROFILE   */
-.avatar
-{
-	width: 100px;
-	height: 100px;
-}
-
-#body_panel #blockticket
-{
-	margin: 100px 0px 40px 570px;
-}
-
-.profile
-{
-	margin: 2% 25%;
-	padding: 20px;
-	border: 4px solid black;
-	background-color: rgba(255, 255, 255, 0.3);
-	border-radius: 15px;
-	margin-bottom: -80px;
-}
-
-.profile table
-{
-	margin: 15px;
-}
-
-.profile td
-{
-	border: 1px solid white;
-	color: white;
-	font-size: 18px;
-	font-weight: 900;
-	margin: 5% 1.5%;
-	width :410px;
-	height:50px;
-	text-align:center;
-	padding:20px 20px;
-	background-color: rgba(0, 0, 0, 0.8);
-}
-
-.profile_avatar
-{
-	overflow: hidden;
-}
-
-.profile_avatar img
-{
-	float: left;
-	margin: 0% 43%;
-	box-shadow: 0px 0px 13px 8px #8cb3d9;
-}
-
-.send_img
-{
-    margin: 2% 0% 0% 5%;
-}
-
-#avatar
-{
-	float: left;
-	margin: 1% 0% 0% 20%;
-}
-
-.search_profile
-{
-	margin: 0% 25%; 
-	padding: 5px;
-	border: 4px solid black;
-	background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-}
-.search_profile p
-{
-	font-size: 20px;
-	color: white;
-	margin: 1% 38%;
-}
-
-.user_search
-{
-	margin-left: 38%;
-	height:30px;
-	background-color: rgba(0, 0, 0, 0.8);
-	color: white;
-	border: 1px solid white;
-}
-
-.user_submit
-{
-	width: 21px;
-	height: 21px;
-	margin-bottom: -7px;
-}
-
-.denied_access
-{
-	margin: 15% 0%;
-	text-align: center;
-	font-size: 60px;
-	font-weight: 900;
-	color:black;
+	background-attachment:fixed;  
 }
 
 .footer
 {
 	margin-top: 47%;
 	clear: both;
- 	width: 100%; 
- 	height: 50px;
- 	text-align: center;
- 	background-color: #0e0e0e;
- 	padding-top: 15px;
- 	text-transform: uppercase;
- 	color: #DADBDB;
- 	font-size: 15px;
-}
-
-.container-fluid
-{
-	background-color: pink;
+	width: 100%; 
+	height: 50px;
+	text-align: center;
+	background-color: #0e0e0e;
+	padding-top: 15px;
+	text-transform: uppercase;
+	color: #DADBDB;
+	font-size: 15px;
 }
 
 .panel-info > .panel-heading
@@ -219,43 +96,201 @@ body
 	color: white;
 }
 
-input
+#confirmation
 {
-	color: black;
+	width: 80%;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 0 auto;
+	border-radius: 5px;
+	border: 1px solid black;
+	margin-top: 100px;
 }
 
-#bouton_chg
-{
-	margin-left: 375px;
-}
 
-.formu_recherche p
-{
-	color: black;
-}
-
-.buton_noir
-{
-	color: black;
-}
-
-#supprimer_compte
-{
-	margin-left: 75%;
-}
-
-#confirmation_affiche
-{
-	text-align: center;
-	font-size: 40px;
-	color: black;
-	margin-top: 350px;
-}
-
-#se_connecter
+.se_connecter
 {
 	text-align: center;
 	font-size: 40px;
 	color: black;
 	margin-top: 100px;
+	font-weight: bold;
+}
+
+.se_connecter_top
+{
+	margin-bottom: 20px;
+}
+
+.se_connecter a
+{
+	color: black;
+}
+
+html,body, .container-fluid, .sidebar2,.main-content
+{
+	height:100%;
+}
+
+.sidebar2
+{
+	background-color: #1a1f27;
+	padding: 0px !important;
+	box-shadow: 2px 2px 5px #262a35;
+	z-index: 1000;
+	height: 100%;
+	position: fixed;
+	width: 15%;
+}
+
+.logo
+{
+	min-height:200px;
+	color:#afb1b5;
+}
+
+.logo>img
+{
+	margin-top: 30px;
+	padding: 1px;
+	border: 3px solid #F17153;
+	border-radius: 100%;
+	background-color: #fff;
+	margin-bottom: 30px;
+	width: 200px;
+	height: 200px;
+}
+
+.btn.Add-friend
+{
+	background-color:#F17153;
+	border: 1px solid #50e6df;
+	color:#eee;
+}
+
+.btn.Add-friend:hover,.btn.Add-friend:active,.btn.Add-friend:active:focus,.btn.Add-friend:active:hover,.btn.Add-friend:visited,.btn.Add-friend:focus
+{
+	background-color:#F17153;
+	border: 0.5px solid transparent;
+	color:white;
+	outline:none;
+	font-weight:600;
+}
+
+.coins
+{
+	display:inline-block;
+	font-size:20px;
+	font-family:'"Helvetica Neue",Helvetica,Arial,sans-serif';
+	margin-bottom: 30px;
+}
+
+.list
+{
+	color: #eee;
+	list-style: none;
+	padding-left: 0px;
+}
+
+li:nth-child(odd)
+{
+	background-color:#13171d;
+}
+
+li>i 
+{
+	margin-right:15px;
+}
+.list> li
+{
+	padding: 15px 0px 15px 40px;
+	font-size: 16px;
+	font-weight:lighter;
+}
+
+.list>li:hover
+{
+
+	color: white;
+	box-shadow:1px 1px 10px 1px #50e6df inset;
+	transition: padding-left 0.2s linear;
+	padding-left: 60px;
+}
+
+.list a
+{
+	text-decoration: none;
+	color: white;
+}
+
+.main-content
+{ 
+	color:#fff; 
+	text-align:center;
+}
+
+.droite
+{
+	float: right;
+	margin-right: 10px;
+}
+
+#video_twitch iframe
+{
+	margin-left: 17%;
+	margin-top: 25px;
+	height: 500px; 
+	width:1000px;
+}
+
+#video_twitch a
+{
+	padding: 2px 0px 4px;
+	display: block;
+	width: 345px;
+	font-weight: normal;
+	font-size: 10px;
+	text-decoration: underline;
+}
+
+.form-admin
+{
+	width: 100%;
+}
+
+.admin-box
+{
+	width: 45%;
+	margin-left: 0;
+	float: left;
+}
+
+#admin-2
+{
+	margin-left: 100px;
+}
+
+#avatar2
+{
+	margin-left: 10px;
+}
+
+[type=file]
+{
+	position: absolute;
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+[type=file] + label
+{
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	padding: 5px;
+	width: 150px;
+	position: relative;
+	text-align: center;
+	background: #333;
+	color: #fff;
+	border: none;
+	cursor: pointer;
 }
