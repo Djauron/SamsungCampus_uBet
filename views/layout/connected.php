@@ -28,8 +28,8 @@
 				<div class="left-navigation">
 					<ul class="list">
 						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="home">Home</a></li>
-						<li><i class="fa fa-thumbs-up" aria-hidden="true"></i>Profile</li>
-						<?php if($admin == 1)
+						<li><i class="fa fa-thumbs-up" aria-hidden="true"></i><a href="profil">Profil</a></li>
+						<?php if(isset($admin) && $admin == 1)
 						{?>
 							<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><a href="admin">Admin</a></li>
 						<?php } ?>

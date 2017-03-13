@@ -1,5 +1,16 @@
 <div class="container form-admin"> 
 
+            <?php
+            if(isset($error) && $error != "null")
+            {?>
+                <div id="pseudo-alert" class="alert alert-danger col-sm-12"><?php echo $error ?></div><?php
+            }
+
+            if(isset($valid) && $valid != "null")
+            {?>
+                <div id="pseudo-alert" class="alert alert-danger col-sm-12" style="background-color: green; color: white;"><?php echo $valid ?></div><?php 
+            }?>
+
     <form id="loginform" class="form-horizontal" method="POST">
 
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 admin-box">                    
@@ -20,8 +31,8 @@
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
-                        <input type="file" name="avatar1" id="avatar1" accept="image/*"/>
-                        <label for="avatar1">Upload Logo Team</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input type="text" name="logo1" id="logo1" class="form-control" placeholder="Lien logo"/>
                     </div>
                 </div>                     
             </div>  
@@ -45,11 +56,37 @@
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
-                        <input type="file" name="avatar2" id="avatar2" accept="image/*"/>
-                        <label for="avatar2">Upload Logo Team</label>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                        <input type="text" name="logo2" id="logo2" class="form-control" placeholder="Lien logo"/>
                     </div>
                 </div>                     
             </div>  
         </div>
+
+        <div id="admin-dates" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 admin-box">                    
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title">Dates</div>
+                </div>     
+                <div style="padding-top:30px" class="panel-body" >
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input class="form-control" type="text" name="date_debut" placeholder="date debut YYYY-MM-JJ" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">                                        
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input class="form-control" type="text" name="date_fin" placeholder="date fin YYYY-MM-JJ" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <input type="submit" name="valid-admin" id="valid-admin"/>
+                    </div>
+
+                </div>                     
+            </div>  
+        </div>
+
     </form>
 </div>	

@@ -120,7 +120,6 @@ class User extends Controller
 				$this->layout = "connected";
 				$this->render('home', $data);
 			}
-
 	}
 
 // FIN CONNEXION
@@ -136,6 +135,8 @@ class User extends Controller
 	public function admin()
 	{
 		$modelsUser = $this->loadModel('Users');
+		$modelsEvent = $this->loadModel('Event');
+
 		$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
 
 		if(!isset($_SESSION['pseudo']) || $admin['rank'] != 1)
@@ -144,14 +145,95 @@ class User extends Controller
 		}
 		else
 		{
-			$data = array('admin'=>$admin['rank']);
-			$this->layout = "connected";
-			$this->render('admin', $data);
-		}
+			if(isset($_POST['valid-admin']))
+			{
+				$modelsEvent->verifInfoAdmin($_POST['team1'], $_POST['team2'], $_POST['cote1'], $_POST['cote2'], $_POST['date_debut'], $_POST['date_fin'], $_POST['logo1'], $_POST['logo2']);
+			}
 
+				$data = array(
+					'admin'=>$admin['rank'],
+					'error'=>$modelsEvent->getError(),
+					'valid'=>$modelsEvent->getValid());
 
+				$this->layout = "connected";
+				$this->render('admin', $data);
+			}
 	}
 // FIN ADMIN
+// DEBUT PROFILE
+
+	public function profil()
+	{
+
+		$modelsUser = $this->loadModel('Users');
+		$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
+		$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
+
+		if(!isset($_SESSION['pseudo']))
+		{
+			header("Location: home");
+		}
+		else
+		{
+			if(isset($_POST['remove']))
+			{
+				$modelsUser->removeUtil($tab = array($_SESSION['pseudo']));
+				header("Location: deconnexion");
+			}
+
+			$data = array(
+				'admin'=>$admin['rank'],
+				'nom'=>$infoUser['nom'],
+				'prenom'=>$infoUser['prenom'],
+				'pseudo'=>$infoUser['pseudo'],
+				'email'=>$infoUser['email'],
+				'date_naissance'=>$infoUser['date_naissance'],
+				'sexe'=>$infoUser['sexe']);
+
+			$this->layout = "connected";
+			$this->render('profil', $data);
+		}
+	}
+
+	public function editProfil()
+	{
+
+		$modelsUser = $this->loadModel('Users');
+		$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
+		$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
+
+		if(!isset($_SESSION['pseudo']))
+		{
+			header("Location: home");
+		}
+		else
+		{
+
+			if(isset($_POST['valid_edit']))
+			{
+				$modelsUser->updateMembre("nom = ?, prenom = ?, email = ? WHERE pseudo = ?",$tab = array($_POST['editNom'], $_POST['editPrenom'], $_POST['editEmail'], $_SESSION['pseudo']));
+				header("Location: profil");
+			}
+
+			if(isset($_POST['valid_edit_mdp']))
+			{
+				$modelsUser->modifMdp($_POST['editMdp'], $_POST['editRemdp']);
+			}
+
+			$data = array(
+				'admin'=>$admin['rank'],
+				'nom'=>$infoUser['nom'],
+				'prenom'=>$infoUser['prenom'],
+				'email'=>$infoUser['email'],
+				'error'=>$modelsUser->getError(),
+				'valid'=>$modelsUser->getValid());
+
+			$this->layout = "connected";
+			$this->render('editProfil', $data);
+		}
+	}
+
+// FIN PROFILE
 
 }
 

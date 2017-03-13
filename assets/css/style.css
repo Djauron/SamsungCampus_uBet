@@ -274,23 +274,60 @@ li>i
 	margin-left: 10px;
 }
 
-[type=file]
+#admin-dates
 {
-	position: absolute;
-	filter: alpha(opacity=0);
-	opacity: 0;
+	margin-left: 25%;
 }
 
-[type=file] + label
+.user-row
 {
-	border: 1px solid #CCC;
-	border-radius: 3px;
+	margin-bottom: 14px;
+}
+
+.user-row:last-child
+{
+	margin-bottom: 0;
+}
+
+.dropdown-user
+{
+	margin: 13px 0;
 	padding: 5px;
-	width: 150px;
-	position: relative;
-	text-align: center;
-	background: #333;
-	color: #fff;
-	border: none;
+	height: 100%;
+}
+
+.dropdown-user:hover
+{
 	cursor: pointer;
+}
+
+.table-user-information > tbody > tr
+{
+	border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child
+{
+	border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td
+{
+	border-top: 0;
+}
+.toppad
+{
+	margin-top:20px;
+}
+
+.profil-center
+{
+	margin-left: 70px;
+}
+
+#remove
+{
+	float: right;
+	margin-top: -30px;
 }

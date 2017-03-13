@@ -289,6 +289,39 @@ class Users extends Model
 
 // FIN ADMIN
 
+// DEBUT REMOVE UTIL
+
+	public function removeUtil($tab)
+	{
+		$sql = "UPDATE user SET active = '1' where pseudo = ?";
+        $query = self::$_pdo->prepare($sql);
+        $query->execute($tab);
+	}
+
+// FIN REMOVE UTIL
+
+// EDIT PROFIL MDP
+
+	public function modifMdp($mdp, $remdp)
+	{
+		$this->mdp = md5(htmlspecialchars($mdp));
+		$this->remdp = md5(htmlspecialchars($remdp));
+
+		if($this->mdp == $this->remdp)
+		{
+			$this->updateMembre("mdp = ? WHERE pseudo = ?",$tab = array($this->mdp, $_SESSION['pseudo']));
+			$this->valid = "Changement effectuer";
+			return true;
+		}
+		else
+		{
+			$this->error = "Vos mots de passes ne correspondent pas";
+			return false;
+		}
+	}
+
+// FIN EDIT PROFIL MDP
+
 }
 
 ?>
