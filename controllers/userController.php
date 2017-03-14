@@ -107,6 +107,7 @@ class User extends Controller
 	public function home()
 	{
 		$modelsUser = $this->loadModel('Users');
+		$modelsEvent = $this->loadModel('Event');
 
 			if(!isset($_SESSION['pseudo']))
 			{
@@ -114,9 +115,18 @@ class User extends Controller
 			}
 			else
 			{
-				$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
 
-				$data = array('admin'=>$admin['rank']);
+				$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
+
+				$event = $modelsEvent->readInfoAll("now() <= date_fin order by date_debut asc");
+
+				$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
+				
+
+				$data = array(
+					'admin'=>$admin['rank'],
+					'jetons'=>$infoUser['jetons'],
+					'event'=>$event);
 				$this->layout = "connected";
 				$this->render('home', $data);
 			}
@@ -130,6 +140,7 @@ class User extends Controller
 		$data = [];
 		$this->render('deconnexion', $data);
 	}
+	
 // FIN DECONNEXION
 // DEBUT ADMIN
 	public function admin()
@@ -139,9 +150,11 @@ class User extends Controller
 
 		$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
 
+		$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
+
 		if(!isset($_SESSION['pseudo']) || $admin['rank'] != 1)
 		{
-			header("Location: home");
+			header("Location: inscription");
 		}
 		else
 		{
@@ -152,6 +165,7 @@ class User extends Controller
 
 				$data = array(
 					'admin'=>$admin['rank'],
+					'jetons'=>$infoUser['jetons'],
 					'error'=>$modelsEvent->getError(),
 					'valid'=>$modelsEvent->getValid());
 
@@ -171,7 +185,7 @@ class User extends Controller
 
 		if(!isset($_SESSION['pseudo']))
 		{
-			header("Location: home");
+			header("Location: inscription");
 		}
 		else
 		{
@@ -183,6 +197,7 @@ class User extends Controller
 
 			$data = array(
 				'admin'=>$admin['rank'],
+				'jetons'=>$infoUser['jetons'],
 				'nom'=>$infoUser['nom'],
 				'prenom'=>$infoUser['prenom'],
 				'pseudo'=>$infoUser['pseudo'],
@@ -204,11 +219,10 @@ class User extends Controller
 
 		if(!isset($_SESSION['pseudo']))
 		{
-			header("Location: home");
+			header("Location: inscription");
 		}
 		else
 		{
-
 			if(isset($_POST['valid_edit']))
 			{
 				$modelsUser->updateMembre("nom = ?, prenom = ?, email = ? WHERE pseudo = ?",$tab = array($_POST['editNom'], $_POST['editPrenom'], $_POST['editEmail'], $_SESSION['pseudo']));
@@ -222,6 +236,7 @@ class User extends Controller
 
 			$data = array(
 				'admin'=>$admin['rank'],
+				'jetons'=>$infoUser['jetons'],
 				'nom'=>$infoUser['nom'],
 				'prenom'=>$infoUser['prenom'],
 				'email'=>$infoUser['email'],
@@ -234,6 +249,35 @@ class User extends Controller
 	}
 
 // FIN PROFILE
+
+// DEBUT ACHAT JETONS
+
+	public function achatJetons()
+	{
+
+		$modelsUser = $this->loadModel('Users');
+		$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
+		$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
+
+		if(!isset($_SESSION['pseudo']))
+		{
+			header("Location: inscription");
+		}
+		else
+		{
+
+			$data = array(
+				'admin'=>$admin['rank'],
+				'jetons'=>$infoUser['jetons'],
+				'error'=>$modelsUser->getError(),
+				'valid'=>$modelsUser->getValid());
+
+			$this->layout = "connected";
+			$this->render('achatJetons', $data);
+		}
+	}
+
+// FIN ACHAT JETONS
 
 }
 

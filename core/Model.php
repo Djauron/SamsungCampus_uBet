@@ -47,6 +47,15 @@ class Model
 		$query->execute($tab);
 	}
 
+	public function readInfoAll($req)
+	{
+		$sql = "SELECT * FROM ".$this->table." WHERE $req";
+		$query = self::$_pdo->prepare($sql);
+		$query->execute();
+		var_dump($query);
+		return $query->fetchAll();
+	}
+
 }
 
 ?>

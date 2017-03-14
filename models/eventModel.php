@@ -86,7 +86,7 @@ class Event extends Model
 
 	public function dateEvent()
 	{
-		$today = date('Y-m-j');
+		$today = date('Y-m-j H:i');
 		
 		if(!empty($this->date_debut) || !empty($this->date_fin))
 		{
@@ -128,6 +128,14 @@ class Event extends Model
 				return false;
 			}
 		}
+	}
+
+	public function readInfoAll($req)
+	{
+		$sql = "SELECT * FROM event WHERE $req";
+		$query = self::$_pdo->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
 	}
 }
 

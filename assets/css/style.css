@@ -191,7 +191,7 @@ html,body, .container-fluid, .sidebar2,.main-content
 	padding-left: 0px;
 }
 
-li:nth-child(odd)
+.event-list > li:nth-child(odd)
 {
 	background-color:#13171d;
 }
@@ -200,6 +200,7 @@ li>i
 {
 	margin-right:15px;
 }
+
 .list> li
 {
 	padding: 15px 0px 15px 40px;
@@ -330,4 +331,143 @@ li>i
 {
 	float: right;
 	margin-top: -30px;
+}
+
+.event-list > li > .info
+{
+	padding-top: 5px;
+	text-align: center;
+}
+.event-list > li > .info > .left > .title
+{
+	font-size: 17pt;
+	font-weight: 700;
+	margin: 0px;
+}
+
+.event-list > li > .info > .right > .title
+{
+	font-size: 17pt;
+	font-weight: 700;
+	margin: 0px;
+}
+
+.right
+{
+	float: right;
+}
+
+.left
+{
+	float: left;
+}
+
+.event-aff
+{
+	margin-bottom: 10px;
+}
+
+.position-date
+{
+	margin: 0 auto;
+	width: 45%;
+}
+
+
+@media (min-width: 768px)
+{
+
+	.right
+	{
+		float: right;
+	}
+
+	.left
+	{
+		float: left;
+	}
+
+	.event-list > li > time,
+	.event-list > li > img
+	{
+		width: 120px;
+	}
+	.event-list > li > .info
+	{
+		background-color: rgb(245, 245, 245);
+		overflow: hidden;
+	}
+
+	.event-list > li > .info
+	{
+		position: relative;
+		height: 120px;
+		text-align: left;
+		padding-right: 10px;
+	}
+
+	.event-list > li > .info > .left > .title, 
+	.event-list > li > .info > .left > .desc
+	{
+		padding: 0px 10px;
+	}
+}
+
+
+/* =================================
+Price Table
+================================= */ 
+.price-table 
+{
+	border-radius: 0;
+	border: 7px solid #eeeeee;
+}
+.price-table:hover 
+{
+	background: rgba(0,0,0, .03);
+	border-color: #0093DD;
+}
+.price-table .price-table-heading 
+{
+	color: #333333;
+	background: white;
+	padding: 10px 0;
+	margin: 0;
+}
+.price-table .price-table-heading .title
+{
+	color: #333333;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+.price-table > .price-table-body 
+{
+	color: #FFFFFF;
+	background: #1A1F27;
+	padding: 50px 0 30px;
+}
+.price-table > .price-table-body .value 
+{
+	font-size: 66px;
+	font-weight: 300;
+	color: #FFFFFF;
+	padding: 0;
+}
+.price-table > .list-group 
+{
+	color: #333;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.price-table-footer
+{
+	background: #eeeeee;
+	padding: 15px 0;
+}
+
+.paypal
+{
+	margin-top: 200px;
 }

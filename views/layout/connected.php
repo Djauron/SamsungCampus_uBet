@@ -17,11 +17,13 @@
 					<div class="coins">
 						<i class="fa fa-dollar" aria-hidden="true"></i>
 					</div>
-					<p class="coins">Nombre de jetons : 2,342</p>
+					<p class="coins">Nombre de jetons : <?=$jetons;?></p>
 					<div>
-						<button type="button" class="btn btn-default Add-friend">
-							<i class="fa fa-rocket" aria-hidden="true"></i> Acheter des jetons !
-						</button>
+						<a href="achatJetons">
+							<button type="button" class="btn btn-default Add-friend">
+								<i class="fa fa-rocket" aria-hidden="true"></i> Acheter des jetons !
+							</button>
+						</a>
 					</div>
 				</div>
 				<br>
@@ -33,6 +35,7 @@
 						{?>
 							<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><a href="admin">Admin</a></li>
 						<?php } ?>
+						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="deconnexion">Deconnexion</a></li>
 					</ul>
 				</div>
 			</div>
