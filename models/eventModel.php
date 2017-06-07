@@ -2,15 +2,15 @@
 
 class Event extends Model
 {
-	protected $_table = "events";
+	protected $table = "event";
 	private $date_debut;
 	private $date_fin;
 	private $team1;
 	private $team2;
 	private $cote1;
 	private $cote2;
-	private $avatar1;
-	private $avatar2;
+	private $logo1;
+	private $logo2;
 	private $error;
 	private $valid;
 
@@ -130,13 +130,6 @@ class Event extends Model
 		}
 	}
 
-	public function readInfoAll($req)
-	{
-		$sql = "SELECT * FROM event WHERE $req";
-		$query = self::$_pdo->prepare($sql);
-		$query->execute();
-		return $query->fetchAll();
-	}
 }
 
 

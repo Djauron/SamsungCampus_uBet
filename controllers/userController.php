@@ -67,6 +67,10 @@ class User extends Controller
 				$modelsUser->verifMail($_GET['p1'], $_GET['p2']);
 			}
 		}
+		else
+        {
+            header("location: ".WEBROOT."user/home");
+        }
 		$data = array(
 				'error'=>$modelsUser->getError(),
 				'valid'=>$modelsUser->getValid());
@@ -85,7 +89,7 @@ class User extends Controller
 		{
 			if(isset($_POST['validerconnexion']))
 			{
-			    $log = $modelsUser->verifConnexion($_POST['pseudo'],$_POST['mdp']);
+			    $modelsUser->verifConnexion($_POST['pseudo'],$_POST['mdp']);
 			}
 		}
 		else
@@ -118,7 +122,7 @@ class User extends Controller
 
 				$infoUser = $modelsUser->readInfo("pseudo = ?", $tab = array($_SESSION['pseudo']));
 
-				$event = $modelsEvent->readInfoAll("now() <= date_fin order by date_debut asc");
+				$event = $modelsEvent->readInfoAll("now() <= date_fin AND terminer IS NULL order by date_debut asc", $tab = array());
 
 				$admin = $modelsUser->verifAdmin($tab = array($_SESSION['pseudo']));
 				
@@ -225,7 +229,7 @@ class User extends Controller
 		{
 			if(isset($_POST['valid_edit']))
 			{
-				$modelsUser->updateMembre("nom = ?, prenom = ?, email = ? WHERE pseudo = ?",$tab = array($_POST['editNom'], $_POST['editPrenom'], $_POST['editEmail'], $_SESSION['pseudo']));
+				$modelsUser->updateMembre("nom = ?, prenom = ?, email = ? WHERE pseudo = ?",$tab = array(htmlspecialchars($_POST['editNom']), htmlspecialchars($_POST['editPrenom']), htmlspecialchars($_POST['editEmail']), $_SESSION['pseudo']));
 				header("Location: profil");
 			}
 

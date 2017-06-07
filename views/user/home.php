@@ -1,10 +1,10 @@
 <div id="video_twitch">
-	<iframe src="https://player.twitch.tv/?channel=lpl1" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+	<iframe src="https://player.twitch.tv/?channel=lpl1"></iframe>
 	<a href="https://www.twitch.tv/lpl1?tt_medium=live_embed&tt_content=text_link"></a>
 </div>
 
 
-<?php foreach($event as $affEvent){ 
+<?php foreach($event as $affEvent){
 	?>
 <div class="container event-aff">
 	<div class="row">
@@ -27,6 +27,9 @@
 						<div class="position-date">
 							<p>Date de debut des paris : <?= $affEvent['date_debut'] ?></p>
 							<p>Date de fin des paris : <?= $affEvent['date_fin'] ?></p>
+                            <a href="<?=WEBROOT?>paris/numEvent/<?=$affEvent['id_event'];?>" class="btn btn-default">
+                                Pariez sur ce match
+                            </a>
 						</div>
 					</div>
 				</li>

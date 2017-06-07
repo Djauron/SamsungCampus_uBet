@@ -7,7 +7,7 @@ class Model
 	function __construct()
 	{
 		$user = "root";
-		$password = "Cloud";
+		$password = "Here password";
 		$database = "bet";
 		$host = "localhost";
 		if(self::$_pdo === null)
@@ -47,14 +47,20 @@ class Model
 		$query->execute($tab);
 	}
 
-	public function readInfoAll($req)
+	public function readInfoAll($req, $tab)
 	{
 		$sql = "SELECT * FROM ".$this->table." WHERE $req";
 		$query = self::$_pdo->prepare($sql);
-		$query->execute();
-		var_dump($query);
+		$query->execute($tab);
 		return $query->fetchAll();
 	}
+
+    public function update($req, $tab)
+    {
+        $sql = "UPDATE ".$this->table." SET $req";
+        $query = self::$_pdo->prepare($sql);
+        $query->execute($tab);
+    }
 
 }
 

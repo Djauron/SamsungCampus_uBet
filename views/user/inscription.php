@@ -1,4 +1,3 @@
-<body id="PageInscription">
 <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 	<div class="panel panel-info">
 		<div class="panel-heading">
@@ -24,14 +23,14 @@
 				<div class="form-group">
 					<label id="nom" class="col-md-3 control-label">Nom</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="nom" placeholder="Nom">
+						<input type="text" class="form-control" name="nom" placeholder="Nom" pattern="[a-zA-Z0-9]+">
 					</div>
 
 				</div>
 				<div class="form-group">
 					<label id="prenom" class="col-md-3 control-label">Prenom</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="prenom" placeholder="Prenom">
+						<input type="text" class="form-control" name="prenom" placeholder="Prenom" pattern="[a-zA-Z0-9]+">
 					</div>
 				</div>
 
@@ -64,7 +63,7 @@
 				<div class="form-group">
 					<label id="pseudo" class="col-md-3 control-label">pseudo</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="pseudo" placeholder="pseudo">
+						<input type="text" class="form-control" name="pseudo" placeholder="pseudo" pattern="[a-zA-Z0-9]+">
 					</div>
 				</div>           
 
@@ -90,4 +89,3 @@
 		</div>
 	</div>
 </div>
-</body>

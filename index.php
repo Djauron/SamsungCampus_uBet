@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 define('WEBROOT',str_replace('index.php','',$_SERVER['SCRIPT_NAME']));
@@ -17,6 +16,12 @@ if(isset($params[2]) && isset($params[3]))
 	$_GET['p1'] = $params[2];
 	$_GET['p2'] = $params[3];
 }
+
+if(isset($params[2]) && !isset($params[3]))
+{
+    $_GET['p1'] = $params[2];
+}
+
 
 if(!file_exists('controllers/'.$controller.'Controller.php'))
 {

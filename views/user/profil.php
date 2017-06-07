@@ -25,16 +25,15 @@
                                     </tr>
 
                                     <tr>
-                                        <tr>
-                                            <td>Sexe</td>
-                                            <td><?=$sexe;?></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Email</td>
-                                            <td><a href="mailto:info@support.com"><?=$email;?></a></td>
-                                        </tr>
+                                        <td>Sexe</td>
+                                        <td><?=$sexe;?></td>
                                     </tr>
+
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><a href="mailto:info@support.com"><?=$email;?></a></td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -42,7 +41,7 @@
                 </div>
 
                 <div class="panel-footer">        
-                    <a href="editProfil" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="editProfil" data-original-title="Edit this user" data-toggle="tooltip" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 
                     <form method="post">
                         <button class="btn btn-sm btn-danger" id="remove" name="remove">

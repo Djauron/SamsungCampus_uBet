@@ -6,7 +6,6 @@
 	<script src="<?=WEBROOT ?>assets/js/jquery.js"></script>
 	<link href="<?=WEBROOT ?>assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?=WEBROOT ?>assets/css/style.css" rel="stylesheet" type="text/css" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 	<div class="container-fluid">
@@ -19,23 +18,21 @@
 					</div>
 					<p class="coins">Nombre de jetons : <?=$jetons;?></p>
 					<div>
-						<a href="achatJetons">
-							<button type="button" class="btn btn-default Add-friend">
+						<a href="<?=WEBROOT?>user/achatJetons" class="btn btn-default Add-friend">
 								<i class="fa fa-rocket" aria-hidden="true"></i> Acheter des jetons !
-							</button>
 						</a>
 					</div>
 				</div>
 				<br>
 				<div class="left-navigation">
 					<ul class="list">
-						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="home">Home</a></li>
-						<li><i class="fa fa-thumbs-up" aria-hidden="true"></i><a href="profil">Profil</a></li>
+						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="<?=WEBROOT ?>user/home">Home</a></li>
+						<li><i class="fa fa-thumbs-up" aria-hidden="true"></i><a href="<?=WEBROOT ?>user/profil">Profil</a></li>
 						<?php if(isset($admin) && $admin == 1)
 						{?>
-							<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><a href="admin">Admin</a></li>
+							<li><i class="fa fa-hand-o-right" aria-hidden="true"></i><a href="<?=WEBROOT ?>user/admin">Admin</a></li>
 						<?php } ?>
-						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="deconnexion">Deconnexion</a></li>
+						<li><i class="fa fa-safari" aria-hidden="true"></i><a href="<?=WEBROOT ?>user/deconnexion">Deconnexion</a></li>
 					</ul>
 				</div>
 			</div>

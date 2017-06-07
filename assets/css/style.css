@@ -471,3 +471,87 @@ Price Table
 {
 	margin-top: 200px;
 }
+
+#warning-img
+{
+	height: 300px;
+	width: 300px;
+}
+
+.taille
+{
+	height: 50%;
+}
+
+.title1
+{
+	margin: 0;
+}
+
+.title2
+{
+	margin: 20px 0px 0px 0px;
+}
+
+.tailleImg
+{
+	height: 300px;
+	width: 300px;
+}
+
+
+.preview
+{
+	display: flex;
+	flex-direction: column;
+}
+
+
+.tab-content
+{
+	overflow: hidden;
+}
+
+.tab-content img
+{
+	width: 100%;
+	animation-name: opacity;
+	animation-duration: .3s;
+}
+
+.card
+{
+	margin-top: 50px;
+	background: rgba(26,31,39,0.8);
+	padding: 3em;
+	line-height: 1.5em;
+	color: #eee;
+}
+
+.wrapper
+{
+	display: flex;
+}
+
+.details
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.choixTeam
+{
+	color: #000000;
+}
+
+#h2color
+{
+	color:#0fad00;
+}
+
+#colorB
+{
+	color: #000000;
+}
+
+

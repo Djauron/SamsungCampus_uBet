@@ -32,15 +32,13 @@
 	                                        <td><input type="text" name="editPrenom" id="editPrenom" value="<?=$prenom;?>"></td>
 	                                    </tr>
 
-	                                    <tr>
-	                                        <tr>
-	                                            <td>Email</td>
-	                                            <td><input type="text" name="editEmail" id="editEmail" value="<?=$email;?>"></td>
-	                                        </tr>
-	                                    </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><input type="text" name="editEmail" id="editEmail" value="<?=$email;?>"></td>
+                                        </tr>
 
 	                                    <tr>
-	                                    	<td><input type="submit" name="valid_edit" id="valid_edit"></td>
+	                                    	<td colspan="2"><input type="submit" name="valid_edit" id="valid_edit"></td>
 	                                    </tr>
 	                                </tbody>
 	                            </table>
@@ -78,7 +76,7 @@
 	                                    </tr>
 
 	                                    <tr>
-	                                    	<td><input type="submit" name="valid_edit_mdp" id="valid_edit_mdp"></td>
+	                                    	<td colspan="2"><input type="submit" name="valid_edit_mdp" id="valid_edit_mdp"></td>
 	                                    </tr>
 	                                </tbody>
 	                            </table>

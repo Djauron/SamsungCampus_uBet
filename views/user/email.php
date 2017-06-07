@@ -9,7 +9,7 @@ $message='
 <html>
 	<body>
 		<div align="center">
-			<a href="http://localhost/B.E.T/user/confirmation/'.$pseudo.'/'.$token.'"> Confimez votre compte </a>
+			<a href="http://207.154.207.98/B.E.T/user/confirmation/'.$pseudo.'/'.$token.'"> Confimez votre compte </a>
 		</div>
 	</body>
 </html>		
